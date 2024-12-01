@@ -10,11 +10,9 @@ public class Car {
     private boolean isDining;
     private int consumption;
 
-    // Default constructor
     public Car() {
     }
 
-    // Constructor
     public Car(int id, String type, String passengers, boolean isDining, int consumption) {
         this.id = id;
         this.type = type;

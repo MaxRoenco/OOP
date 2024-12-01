@@ -3,7 +3,6 @@ package CarServiceLab;
 import CarServiceLab.AboutCars.Car;
 import CarServiceLab.AboutCars.CarStats;
 import CarServiceLab.Interfaces.Dineable;
-import CarServiceLab.Interfaces.Queue;
 import CarServiceLab.Interfaces.Refuelable;
 import CarServiceLab.QueueImplementation.CarQueue;
 import CarServiceLab.Serving.*;
@@ -17,7 +16,7 @@ public class CarServiceStation implements Runnable {
     private final CarStats carStats;
     private final ObjectMapper objectMapper;
     private volatile boolean running = true;
-    private int useTask = 4;
+    private int useTask = 2;
 
     public CarServiceStation(CarQueue carQueue, CarStats carStats) {
         this.carQueue = carQueue;
