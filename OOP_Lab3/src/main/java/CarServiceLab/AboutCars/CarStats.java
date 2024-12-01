@@ -1,4 +1,4 @@
-package CarServiceLab;
+package CarServiceLab.AboutCars;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.LinkedHashMap;
@@ -17,17 +17,13 @@ public class CarStats {
     }
 
     public synchronized void updateStats(Car car) {
-        // Update type stats
         typeStats.merge(car.getType(), 1, Integer::sum);
 
-        // Update passenger stats
         passengerStats.merge(car.getPassengers(), 1, Integer::sum);
 
-        // Update dining stats
         String diningKey = car.isDining() ? "DINING" : "NOT_DINING";
         diningStats.put(diningKey, diningStats.get(diningKey) + 1);
 
-        // Update consumption
         consumption.merge(car.getType(), car.getConsumption(), Integer::sum);
     }
 
@@ -46,5 +42,34 @@ public class CarStats {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+    public int getElectricConsumption() {
+        return consumption.getOrDefault("ELECTRIC", 0);
+    }
+
+    public int getGasConsumption() {
+        return consumption.getOrDefault("GAS", 0);
+    }
+
+    public int getElectricCount() {
+        return typeStats.getOrDefault("ELECTRIC", 0);
+    }
+
+    public int getGasCount() {
+        return typeStats.getOrDefault("GAS", 0);
+    }
+
+    public int getPeopleCount(){
+        return passengerStats.getOrDefault("PEOPLE", 0);
+    }
+
+    public int getRobotCount(){
+        return passengerStats.getOrDefault("ROBOTS", 0);
+    }
+    public int getDiningCount(){
+        return diningStats.getOrDefault("DINING", 0);
+    }
+    public int getNotDiningCount(){
+        return diningStats.getOrDefault("NOT_DINING", 0);
     }
 }

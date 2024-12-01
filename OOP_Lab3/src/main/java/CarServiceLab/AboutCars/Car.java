@@ -1,4 +1,4 @@
-package CarServiceLab;
+package CarServiceLab.AboutCars;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
